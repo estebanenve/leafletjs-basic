@@ -10,7 +10,16 @@ map.on('locationfound',e=>{
     const marker=L.marker(coords);
     marker.bindPopup('Ubicacion actual');
     map.addLayer(marker);
+});
+map.on('dblclick', e =>{
+    let latLng = map.mouseEventToLatLng(e.originalEvent);
+    const coords=[latLng.lat, latLng.lng];
+    console.log(latLng.lat)
+    const marker=L.marker(coords);
+    map.addLayer(marker);
 })
+
+map.doubleClickZoom.disable()
 
 const marker=L.marker([-34.6083,-58.3712]);
 marker.bindPopup('Ciudad de buenos aires');
