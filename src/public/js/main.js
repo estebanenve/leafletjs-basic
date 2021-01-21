@@ -1,5 +1,5 @@
 //Ubicacion inicial del  mapa
-const map =L.map('map-template').setView([-34.6083,-58.3712],13);
+const map =L.map('map-template').setView([-34.6083,-58.3712],12);
 
 //Template a utilizar
 const tileURL= 'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -48,3 +48,20 @@ fetch(urlGeo)
 setTimeout(updateMap, 1000)
 }
  updateMap()
+
+
+
+ //Marcador circular
+ var circle = L.circle([-34.6083,-58.3712], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 1000
+}).addTo(map);
+
+//poligon
+var polygon = L.polygon([
+    [-34.66182308737559, -58.36573935936066],
+    [-34.70043104589618, -58.30720282985709],
+    [-34.726959164195364, -58.33363868185681]
+]).addTo(map);
